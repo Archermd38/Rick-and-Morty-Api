@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Form from './Components/Form'
 import PintarDatos from './Components/PintarDatos'
 
@@ -6,13 +6,16 @@ const App = () => {
 
   const [nombrePersonaje, setNombrePersonaje] = useState('')
 
-  /*
   useEffect(() => {
     if(localStorage.getItem('nombreApi')){
       setNombrePersonaje(JSON.parse(localStorage.getItem('nombreApi')))
     }
-  }, [nombrePersonaje])
-    */
+  }, [])
+
+  useEffect(() => {
+    consumirApi(nombrePersonaje)
+    localStorage.setItem('nombreApi', JSON.stringify(nombrePersonaje))
+}, [nombrePersonaje]);
 
 
   return (

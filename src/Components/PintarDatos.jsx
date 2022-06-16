@@ -11,7 +11,6 @@ const PintarDatos = ({nombrePersonaje}) => {
 
     useEffect(() => {
         consumirApi(nombrePersonaje)
-        localStorage.getItem('nombreApi', JSON.stringify(nombrePersonaje))
     }, [nombrePersonaje]);
     
 
